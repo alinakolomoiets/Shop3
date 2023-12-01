@@ -12,7 +12,7 @@ using Shop.Data;
 namespace Shop.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231201093947_updateGraafik")]
+    [Migration("20231201123804_updateGraafik")]
     partial class updateGraafik
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,7 +35,11 @@ namespace Shop.Migrations
                     b.Property<DateTime>("AvatudAeg")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Paev")
+                    b.Property<string>("Paev")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PoodId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("SuletudAeg")
